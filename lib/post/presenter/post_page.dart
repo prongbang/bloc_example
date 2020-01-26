@@ -14,9 +14,12 @@ class PostPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Posts'),
       ),
-      body: BlocProvider(
-        create: (context) => PostBloc(httpClient: http.Client())..add(Fetch()),
-        child: _PostPage(),
+      body: SafeArea(
+        child: BlocProvider(
+          create: (context) =>
+              PostBloc(httpClient: http.Client())..add(Fetch()),
+          child: _PostPage(),
+        ),
       ),
     );
   }
